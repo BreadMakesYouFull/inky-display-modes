@@ -18,6 +18,9 @@ Thanks to, but not affiliated with [pimoroni's inky python library.](https://git
 ![](./preview/preview2.gif)
 ![](./preview/preview2_small.jpeg)
 
+![](./preview/HD/preview_HD_1.jpg)
+![](./preview/HD/preview_HD_2.jpg)
+
 ## Requires
 
 * linux / bash
