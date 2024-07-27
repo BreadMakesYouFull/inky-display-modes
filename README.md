@@ -109,7 +109,7 @@ modes:
 * fortune
 * noise
 
-## Auto start on raspberry pi
+## Auto start on raspberry pi & optional image upload/download
 
 To startup via rc-local edit ``/etc/rc.local``:
 
@@ -119,7 +119,11 @@ To startup via rc-local edit ``/etc/rc.local``:
 # This script is executed at startup
 
 # Run inkyfuncmap
-bash -c 'cd /home/pi/inky-display-modes; source ./venv/bin/activate; python -m inkyfuncmap' &
+bash -c 'cd /home/pi/inky-display-modes/ ; source ./venv/bin/activate; env INKY_IMG_DIR=/home/pi/inky-display-modes/img python -m inkyfuncmap' &
+
+# Optionally run a image upload/download server:
+# See docs here: https://pypi.org/project/uploadserver/
+bash -c 'cd /home/pi/inky-display-modes/ ; source ./venv/bin/activate; cd img; python3 -m uploadserver --basic-auth inky:pleasechangeme!' &
 
 exit 0
 ```

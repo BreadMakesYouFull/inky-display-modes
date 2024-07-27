@@ -10,5 +10,6 @@ setup(
         "RPi.GPIO",
         "pillow",
         "requests",
+        "uploadserver",
     ]
 )
