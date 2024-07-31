@@ -62,6 +62,9 @@ def _tk_keypress(display, event):
     Args:
         event (tkinter.Event): keypress event.
     """
+    # Also ensure no auto thread running:
+    if hasattr(display, "stop_auto") and display.stop_auto:
+        display.stop_auto.set()
     print(event.char)
     function = config.KEYS.get(event.char, func.__null_function)
     thread = threading.Thread(target=lambda: function(display))
@@ -78,6 +81,9 @@ def _inky_keypress(display, pin):
         display (inky.Inky): draw display
         pin (int): gpio pin press
     """
+    # Also ensure no auto thread running:
+    if hasattr(display, "stop_auto") and display.stop_auto:
+        display.stop_auto.set()
     label = config.LABELS[config.BUTTONS.index(pin)]
     print("Button press detected on pin: {} label: {}".format(pin, label))
     function = config.KEYS.get(label.lower(), func.__null_function)

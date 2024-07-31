@@ -225,7 +225,7 @@ def switch_func(display, increment):
     display.index += increment
     print("mode " + config.FUNC_KEYS[display.index])
     # Also ensure no auto thread running:
-    if hasattr(display, "stop_auto"):
+    if hasattr(display, "stop_auto") and display.stop_auto:
         display.stop_auto.set()
 
 
